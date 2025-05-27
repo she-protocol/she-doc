@@ -1,0 +1,149 @@
+---
+title: 'Connect to SHE'
+---
+
+import { Callout } from 'nextra/components';
+import { ImageWithCaption } from '../../src/components';
+import EvmWalletConnect from '../../src/components/EvmWalletConnect/EvmWalletConnect';
+import SheTraceSearch from '../../src/components/AddressSearch/SheTraceSearch';
+import cexWithdrawImage from '../../public/assets/cex-withdraw.png';
+import sourceChainDropdownImage from '../../public/assets/source-chain.png';
+import selectAssetImage from '../../public/assets/select-asset.png';
+
+# Connect to SHE
+
+This getting started guide will help you set up your wallet and start using SHE,
+even if you're new to blockchain. By the end, you'll be ready to explore the
+most performant blockchain ever.
+
+## Requirements
+
+- A compatible, non-custodial wallet, such as [MetaMask](https://metamask.io/),
+  or [Compass](https://compasswallet.io/).
+- SHE tokens [from an exchange](learn/getting-tokens), or stablecoins in your
+  personal wallet.
+
+For additional help with wallet apps, see our
+[Setting up a Wallet](learn/wallet-setup) guide.
+
+## Connecting Your Wallet
+
+For a quick setup, simply click the "Connect Wallet" button below to connect
+directly from this guide.
+
+<EvmWalletConnect />
+
+After connecting, your wallet will automatically prompt you to join the correct
+SHE network.
+
+> If your wallet doesn’t automatically prompt you to join the SHE Network,
+> please add it manually by following the network details
+> [here](/user-guides/wallet-setup).
+
+After connection, you're ready to dive in, the demo below walks you through connecting to the SHE
+network step-by-step.
+
+## Dual Address Support
+
+SHE supports two wallet address types:
+
+- **EVM (0x) address:** Ethereum-style addresses prefixed with "0x".
+- **SHE address:** Native SHE blockchain addresses prefixed with "she1".
+
+Both addresses are derived from the same public key, ensuring seamless asset
+integration across formats. You can find your corresponding wallet addresses
+directly in the SHE app.
+
+For more details on interoperability, explore our article
+[here](https://blog.she.io/she-v2-interoperability/).
+
+### How to Link Your Addresses
+
+<Callout emoji="💡">Linking addresses is recommended for all users to enable cross-VM functionality in many SHE apps.</Callout>
+
+To use interoperability features in SHE apps, you’ll need to link your SHE and
+EVM (0x) addresses. Each SHE address has a corresponding EVM address, derived
+from the same public key, and this link is required on your first use.
+
+<Callout type="warning">Address linking is automatic—each SHE account is tied to a single SHE address and a single EVM address, both derived from the same public key.</Callout>
+
+Follow these steps to link your SHE and EVM addresses:
+
+1. Go to [app.she.io](https://app.she.io) in your browser.
+2. In the Dashboard, locate the "Addresses" box.
+3. Complete any required captcha.
+4. Click "Link Addresses" to start the process. You’ll be prompted to sign a
+   message with your wallet—this is not a transaction and incurs no gas fees.
+5. Once signed, your SHE and EVM addresses will be linked.
+
+For more details, check the [Linking Addresses guide](learn/linking-addresses).
+
+### How to View Your Address Pair
+
+You can view your wallet address on any SHE blockchain explorer to see your
+transactions and balances.
+
+<SheTraceSearch />
+
+Alternatively, users can interact with SHE directly via API endpoints.
+
+## Onboarding from Centralized Exchanges
+
+If you're transitioning from a CEX, using both SHE and 0x addresses is simple.
+CEXs will upgrade to support both over time.
+
+### Withdrawing to a SHE Address
+
+Copy your **she1...** address and paste it into the withdrawal page of your CEX.
+
+<ImageWithCaption img={cexWithdrawImage} alt="Withdraw SHE from Cex" />
+
+<Callout type="warning">No memo is required for withdrawals, but depositing back to a CEX may require a memo. Check your CEX's guidelines to ensure smooth transfers.</Callout>
+
+### Withdrawing to an EVM/0x Address
+
+To withdraw to an 0x address, you must first link it to your SHE address. Follow
+the steps in the [Linking Addresses guide](user-guides/linking-addresses).
+
+If your addresses aren't linked, visit the Dashboard on the
+[SHE App](https://app.she.io) to check or link them.
+
+## Bridging to SHE
+
+To move assets to SHE from another network, find recommended bridge paths via
+the SHE app:
+
+1. Go to [app.she.io](https://app.she.io).
+2. Select the **Source Chain** (where your assets currently reside).
+   <ImageWithCaption img={sourceChainDropdownImage} alt="Select a source chain" />
+3. Choose the asset you want to bridge (e.g., stablecoins). Verify the token.
+   <Callout emoji="⚠️">NB: Assets pictured are for illustrative purposes only and may not be supported at present. Check the SHE app to see what options are available to you.</Callout>
+   <ImageWithCaption img={selectAssetImage} alt="Select an asset" />
+4. The app will recommend a bridge based on the asset and origin chain.
+
+Consider [Squid](https://www.squidrouter.com/) for initial bridging. New bridges
+will be added over time.
+
+<Callout type="info" emoji="ℹ️">
+  While bridge providers work to minimize risks, always conduct your own due diligence and research before engaging in bridging.
+</Callout>
+
+### Gas on Arrival
+
+Some bridges offer a "gas on arrival" feature, providing a small amount of SHE
+tokens to cover initial transaction fees. To find these options, open the SHE
+App, go to the "Bridge" section, select your source chain and asset, and view
+the recommended third-party bridges. Bridges with "gas on arrival" support are
+typically labeled in the app, making it easy to identify them. If no label
+appears, check the bridge provider's official documentation or website for the
+latest "gas on arrival" information.
+
+## Viewing Assets in Your Wallet
+
+To view your assets, use a block explorer like
+[shetrace.com](https://www.shetrace.com). This explorer supports both EVM and
+native SHE addresses.
+
+Simply search for your wallet address to view your holdings. To import tokens
+into MetaMask, use the contract addresses found in the explorer. Learn more
+[here](https://support.metamask.io/managing-my-tokens/custom-tokens/how-to-display-tokens-in-metamask/).

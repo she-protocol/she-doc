@@ -1,0 +1,91 @@
+# Divergence from Ethereum
+
+While SHE features full EVM compatibility, there are some distinctions between
+SHE's EVM and Ethereum itself.
+
+## EVM Differences
+
+Unlike Ethereum mainnet which is on Cancun for its execution layer, SHE uses the
+Shanghai version of EVM. This means that features like blob transactions are not
+supported on SHE.
+
+## Opcode Differences
+
+### PREVRANDAO
+
+Since SHE doesn’t rely on the same pseudo-randomness way of determining the next
+validator like Proof of Stake (PoS) Ethereum does, it doesn’t really have the
+`RANDOM` artifact that can be set as `PREVRANDO`'s return value. In SHE
+`PREVRANDAO` is set to return the hash of the current block time. For strong
+randomness guarantee needs in contracts logic, it’s advised to use external
+verifiable oracles (as is advised on Ethereum itself).
+
+### COINBASE
+
+Coinbase address on SHE is always set to (the EVM address of) the global fee
+collector.
+
+## State Root
+
+Since SHE uses AVL-tree instead of Merkle Patricia Trie (MPT) for data storage,
+SHE doesn’t have per-account state root. The global state root is the AVL-tree
+root which is also not equivalent to Ethereum’s overall state root (which is a
+MPT root)
+
+## Block Hash
+
+The block hash on SHE is computed based on the block header in Tendermint data
+format, and is different from Ethereum’s block Hash as a result.
+
+## Base Fee & Tips
+
+SHE supports all transaction types. However for a legacy (non EIP1559) type
+transaction, you must specify a base fee of 1gwei. In addition to this, excess
+"gas wanted/gas limit" beyond the actual "gas used" may not be refunded in full
+or in part.
+
+Current EIP1559 parameters can be fetched from the `shed` SDK tool:
+
+```sh copy
+shed q params subspace evm KeyTargetGasUsedPerBlock
+
+key: KeyTargetGasUsedPerBlock
+subspace: evm
+value: '"850000"'
+root@ip-172-31-4-247:/home/ubuntu# shed q params subspace evm KeyMaxDynamicBaseFeeUpwardAdjustment
+key: KeyMaxDynamicBaseFeeUpwardAdjustment
+subspace: evm
+value: '"0.007500000000000000"'
+```
+
+## Block Limit
+
+SHE has a gas limit of 10M on `pacific-1`, compared to
+Ethereum’s 30M.
+
+In addition, SHE also has a byte size limit of 21MB, whereas Ethereum doesn’t
+have byte-denominated limits.
+
+## Non-EVM Transactions
+
+On SHE there exists non-EVM transactions which may update states accessible by
+EVM transactions. The simplest example would be bank balances, which may be
+updated by both native Cosmos bank send transactions and EVM send transactions.
+As a result, if certain offchain applications only parse EVM transactions, they
+may find certain state changes unattributable to any EVM transaction.
+
+## Finality
+
+SHE has instant finality, meaning that commitment levels of “safe”, “latest”,
+“justified”, and “finalized” on Ethereum are all the same thing on SHE.
+
+## Pending State
+
+On Ethereum the block proposer would execute its proposed block first (and
+update its local state) before broadcasting the proposal to others (the updated
+state would be marked “pending” until the node is accepted by other nodes).
+
+However, on SHE, the block proposer would broadcast first and only execute the
+proposal if it’s accepted (i.e. every node would execute the block at roughly
+the same time), so SHE does not really have a window when “pending state”
+exists.
