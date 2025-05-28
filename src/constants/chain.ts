@@ -33,8 +33,8 @@ export const CHAIN_CONFIGS: ChainConfigs = {
 	}
 };
 
-export const EVM_CHAIN_CONFIGS: EvmChainConfigs = {
-	'she-mainnet': {},
-	'she-testnet': {},
-	'she-devnet': {}
-};
+// export const EVM_CHAIN_CONFIGS: EvmChainConfigs = {
+// 	'she-mainnet': {},
+// 	'she-testnet': {},
+// 	'she-devnet': {}
+// };

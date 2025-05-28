@@ -25,20 +25,20 @@ const wagmiConfig = createConfig({
 const queryClient = new QueryClient();
 
 export default function EvmWalletConnect() {
-	return (
-		<DynamicContextProvider
-			settings={{
-				environmentId: '8974dcb9-89c7-4472-a988-e55c217a1020',
-				walletConnectors: [EthereumWalletConnectors]
-			}}>
-			<WagmiProvider config={wagmiConfig}>
-				<QueryClientProvider client={queryClient}>
-					<DynamicWagmiConnector>
-						{/* <WalletComponent /> */}
-					</DynamicWagmiConnector>
-				</QueryClientProvider>
-			</WagmiProvider>
-		</DynamicContextProvider>
+	return (<></>
+		// <DynamicContextProvider
+		// 	settings={{
+		// 		environmentId: '8974dcb9-89c7-4472-a988-e55c217a1020',
+		// 		walletConnectors: [EthereumWalletConnectors]
+		// 	}}>
+		// 	<WagmiProvider config={wagmiConfig}>
+		// 		<QueryClientProvider client={queryClient}>
+		// 			{/* <DynamicWagmiConnector>
+		// 				{/* <WalletComponent /> */}
+		// 			</DynamicWagmiConnector> */}
+		// 		</QueryClientProvider>
+		// 	</WagmiProvider>
+		// </DynamicContextProvider>
 	);
 }
 
