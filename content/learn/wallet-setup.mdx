@@ -18,8 +18,6 @@ on the [Wallets Page](providers/wallets/wallets)**
 Adding SHE your wallet takes only a few clicks. Connect your wallet
 using the button below to import the network settings:
 
-<EvmWalletConnect />
-
 #### Import Manually
 
 If you encounter any issues with the automatic connection, you can also add the
@@ -28,10 +26,10 @@ SHE EVM manually. Follow the steps outlined
 using the chain information provided below:
 
 - **Network Name**: SHE
-- **New RPC URL**: `https://evm-rpc.she-apis.com`
+- **New RPC URL**: `https://rpc-dev.she.io`
 - **Chain ID**: 0x531 (decimal 1329)
 - **Currency Symbol**: SHE
-- **Block Explorer URL**: `https://shetrace.com`
+- **Block Explorer URL**: `https://dev-explorer.she.io`
 
 ## Advanced
 
@@ -51,8 +49,6 @@ contexts.
 - **"hex" Address**: Starts with `0x` and is EVM-based.
 
 - **"bech32" Address**: Starts with `she1` and is used for SHE-native functions.
-
-<ImageWithCaption img={addressTranslationImage} alt="Address derivation" />
 
 Although these addresses appear different, they actually share the same
 underlying account. This means whatever action you take with one address will
@@ -82,11 +78,6 @@ difference lies in the transaction targeting a SHE precompiled contract, where
 your approval via MetaMask is needed to execute the transaction. Smart contract
 developers will need to ensure that Metamask transactions target the precompiled
 contract.
-
-<div className="my-4 flex flex-col items-center sm:flex-row justify-center gap-8 w-full">
-  <ImageWithCaption img={evmSigningImage} alt="Example of signing an EVM transaction" caption="Example of EVM transaction signing" className="max-w-xs mx-auto" />
-  <ImageWithCaption img={cosmSigningImage} alt="Example of signing a CosmWasm transaction" caption="Example of CosmWasm transaction signing" className="max-w-xs mx-auto" />
-</div>
 
 ### Viewing Tokens
 

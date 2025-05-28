@@ -12,15 +12,13 @@ import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
 import { createConfig, http, WagmiProvider } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
-import { she, sheDevnet, sheTestnet } from 'viem/chains';
+import { mainnet } from 'viem/chains';
 
 const wagmiConfig = createConfig({
-	chains: [she, sheTestnet, sheDevnet],
+	chains: [mainnet],
 	multiInjectedProviderDiscovery: false,
 	transports: {
-		[she.id]: http(),
-		[sheTestnet.id]: http(),
-		[sheDevnet.id]: http()
+		[mainnet.id]: http(),
 	}
 });
 
@@ -36,7 +34,7 @@ export default function EvmWalletConnect() {
 			<WagmiProvider config={wagmiConfig}>
 				<QueryClientProvider client={queryClient}>
 					<DynamicWagmiConnector>
-						<WalletComponent />
+						{/* <WalletComponent /> */}
 					</DynamicWagmiConnector>
 				</QueryClientProvider>
 			</WagmiProvider>

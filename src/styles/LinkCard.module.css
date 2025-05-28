@@ -8,23 +8,23 @@
 	height: 100%;
 	overflow: hidden;
 	border-radius: 0.75rem;
-	background-color: #f9d2d2;
+	background-color: #b3f4f2; /* light version of #0ABAB5 */
 	color: #000;
 	transition: all 0.3s ease;
 }
 
 .cardLink:hover {
-	background-color: #e5a8a8;
+	background-color: #a0eae8; /* slightly darker for hover */
 }
 
 /* Dark mode background/text */
 :global(.dark) .cardLink {
-	background-color: #8b1f1f;
+	background-color: #108c88; /* medium teal for dark mode */
 	color: #fff;
 }
 
 :global(.dark) .cardLink:hover {
-	background-color: #9b2f2f;
+	background-color: #139f9a; /* hover slightly lighter than base */
 }
 
 .cardContent {

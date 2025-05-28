@@ -49,7 +49,6 @@ export default {
 		type: 'separator',
 		title: 'Ecosystem'
 	},
-	'ledger-ethers': 'Using Ledger with Ethers',
 	'resources-tools-and-resources': 'Tools',
 	'resources-resources': 'Resources'
 };

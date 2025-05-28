@@ -17,7 +17,6 @@ export default {
 	},
 	'dev-gas': 'Gas',
 	'wallet-setup': 'Wallet Setup',
-	'ledger-setup': 'Ledger Integration',
 	'linking-addresses': 'Linking Address Types',
 	'getting-tokens': 'Acquiring SHE Tokens',
 
@@ -26,11 +25,7 @@ export default {
 		title: 'Account Basics'
 	},
 	'block-explorers': 'Exploring Transactions',
-	'wrapped-she': 'Wrapped SHE',
-	bridging: 'Bridging Assets to SHE',
-	'hardware-wallets': 'Using Hardware Wallets',
 	'wallet-association': 'Wallet Association',
-
 	'-- Account Management': {
 		type: 'separator',
 		title: 'Account Management'
@@ -65,13 +60,6 @@ export default {
 	},
 	oracles: 'Understanding Oracles',
 
-	'-- Interoperability': {
-		type: 'separator',
-		title: 'Interoperability'
-	},
-	'dev-interoperability': 'VM Interoperability',
-	'ibc-relayer': 'IBC Relayers',
-
 	'-- Environments': {
 		type: 'separator',
 		title: 'Environments'
@@ -83,7 +71,5 @@ export default {
 		type: 'separator',
 		title: 'Additional Resources'
 	},
-	'user-FAQ': 'FAQ',
-	'general-brand-kit': 'Brand Kit',
-	'general-submit-feedback': 'Submit Feedback'
+	'user-FAQ': 'FAQ'
 };

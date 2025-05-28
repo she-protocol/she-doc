@@ -12,9 +12,9 @@ const VersionTable: React.FC = () => {
 
 	return (
 		<>
-			<VersionFetcher chainId='pacific-1' rpcEndpoint='https://rpc.she-apis.com' setVersion={setMainnetVersion} />
-			<VersionFetcher chainId='atlantic-2' rpcEndpoint='https://rpc.atlantic-2.shenetwork.io' setVersion={setTestnetVersion} />
-			<VersionFetcher chainId='arctic-1' rpcEndpoint='https://rpc-arctic-1.she-apis.com' setVersion={setDevnetVersion} />
+			<VersionFetcher chainId='she-mainnet' rpcEndpoint='https://rpc-dev.she.io' setVersion={setMainnetVersion} />
+			<VersionFetcher chainId='she-testnet' rpcEndpoint='https://rpc-dev.she.io' setVersion={setTestnetVersion} />
+			<VersionFetcher chainId='she-devent' rpcEndpoint='https://rpc-dev.she.io' setVersion={setDevnetVersion} />
 
 			<Table.Root size='3' variant='surface' className='mt-8'>
 				<Table.Header>
@@ -29,25 +29,25 @@ const VersionTable: React.FC = () => {
 					<Table.Row>
 						<Table.RowHeaderCell>Mainnet</Table.RowHeaderCell>
 						<Table.Cell>{mainnetVersion || 'Fetching...'}</Table.Cell>
-						<Table.Cell>pacific-1</Table.Cell>
+						<Table.Cell>she-mainnet</Table.Cell>
 						<Table.Cell className='text-red-600 hover:underline'>
-							<a href='https://raw.githubusercontent.com/she-protocol/testnet/main/pacific-1/genesis.json'>Genesis</a>
+							<a href='https://raw.githubusercontent.com/she-protocol/she-networks/main/she-mainnet/genesis.json'>Genesis</a>
 						</Table.Cell>
 					</Table.Row>
 					<Table.Row>
 						<Table.RowHeaderCell>Testnet</Table.RowHeaderCell>
 						<Table.Cell>{testnetVersion || 'Fetching...'}</Table.Cell>
-						<Table.Cell>atlantic-2</Table.Cell>
+						<Table.Cell>she-testnet</Table.Cell>
 						<Table.Cell className='text-red-600 hover:underline'>
-							<a href='https://raw.githubusercontent.com/she-protocol/testnet/main/atlantic-2/genesis.json'>Genesis</a>
+							<a href='https://raw.githubusercontent.com/she-protocol/she-networks/main/she-testnet/genesis.json'>Genesis</a>
 						</Table.Cell>
 					</Table.Row>
 					<Table.Row>
 						<Table.RowHeaderCell>Devnet</Table.RowHeaderCell>
 						<Table.Cell>{devnetVersion || 'Fetching...'}</Table.Cell>
-						<Table.Cell>arctic-1</Table.Cell>
+						<Table.Cell>she-devnet</Table.Cell>
 						<Table.Cell className='text-red-600 hover:underline'>
-							<a href='https://raw.githubusercontent.com/she-protocol/testnet/main/arctic-1/genesis.json'>Genesis</a>
+							<a href='https://raw.githubusercontent.com/she-protocol/she-networks/main/she-devnet/genesis.json'>Genesis</a>
 						</Table.Cell>
 					</Table.Row>
 				</Table.Body>

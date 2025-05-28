@@ -21,9 +21,5 @@ export default {
 	reference: {
 		title: 'Reference',
 		type: 'page'
-	},
-	providers: {
-		title: 'Providers',
-		type: 'page'
 	}
 };

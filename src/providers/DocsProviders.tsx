@@ -25,14 +25,13 @@ export default function DocsProviders({ children, pageMap }) {
 					className='flex items-center justify-between px-4 w-full dark:bg-neutral-900 bg-neutral-100'
 					children={
 						<div className='flex items-center justify-between gap-4'>
-							<AskCookbook />
 							<Search placeholder='Search docs...' />
 						</div>
 					}
 				/>
 			}
 			pageMap={pageMap}>
-			<Theme accentColor='red' grayColor='gray' scaling='100%'>
+			<Theme accentColor='sky' grayColor='gray' scaling='100%'>
 				{children}
 			</Theme>
 		</Layout>
